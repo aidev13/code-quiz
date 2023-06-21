@@ -78,7 +78,7 @@ This Challenge is graded based on the following criteria:
 * Application resembles the mock-up functionality provided in the Challenge instructions.
 
 ### Repository Quality: 13%
-
+com
 * Repository has a unique name.
 
 * Repository follows best practices for file structure and naming conventions.
