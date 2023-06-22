@@ -1,16 +1,27 @@
 // timer code
 var timer = document.querySelector(".timer")
-
+var bgColor = document.querySelector("body")
+var count = 10
+var intervalId
 // Quiz Start Button
 var start = document.querySelector(".start-button")
 
-start.addEventListener('click', function() {
+start.onclick =  function() {
+
+    timer.innerText = ""
     
-        setTimeout(function() {
-           timer.innerHTML = "Time's Up!"
-       }, 3000)
-       
-})
+        intervalId = setInterval(function() {
+           timer.innerText = count
+           if(count=== 0) {
+               clearInterval(intervalId)
+               timer.innerText = "Time's Up!"
+            }
+            count--
+       }, 1000)
+
+}
+
+resi
 
 
 // Quiz codes
