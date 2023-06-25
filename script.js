@@ -1,5 +1,5 @@
 // questions and answers js code
-
+var quizIndex = 0
 var quiz = [
     {
     question: "This is the first question",
@@ -43,35 +43,58 @@ var buttonA = document.getElementById("a")
 var buttonB = document.getElementById("b")
 var buttonC = document.getElementById("c")
 var buttonD = document.getElementById("d")
-var correctPick = quiz.correct
-
-
-
+var allChoices = []
+var possibleAnswers = document.getElementById("possibleAnswers")
 
 
 
 function displayQuiz()  {
 
-    for (var i=0 ; i<quiz.length ; i++) {
-        questionAsked.innerHTML = quiz[i].question
-        buttonA.innerHTML = quiz[i].a
-        buttonB.innerHTML = quiz[i].b
-        buttonC.innerHTML = quiz[i].c
-        buttonD.innerHTML = quiz[i].d
+    // for (var i=0 ; i<quiz.length ; i++) {
+        questionAsked.innerHTML = quiz[quizIndex].question
+        buttonA.innerHTML = quiz[quizIndex].a
+        buttonB.innerHTML = quiz[quizIndex].b
+        buttonC.innerHTML = quiz[quizIndex].c
+        buttonD.innerHTML = quiz[quizIndex].d
 
         // correctPick.innerHTML = quiz[i].correct
+       console.log(quiz[quizIndex])
 
+       
+
+// }
+}
+
+//event delagation
+possibleAnswers.addEventListener('click', function(event){
+    //if the users clicks a button
+    if (event.target.matches(".btn")) {
+
+// if button id matches the quiz[quizIndex].correct
+        //
+        quizIndex++
+        displayQuiz()
 
 }
 }
+)
+
+
+
+
+
+
+
+
+
+
+
 
 // timer code
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
 var count = 30
 var intervalId
-
-
 
 // Quiz Start Button
 var start = document.querySelector(".start-button")
@@ -93,3 +116,4 @@ start.onclick =  function() {
        }, 1000)
 
 }
+
