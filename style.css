@@ -2,58 +2,37 @@
     font-family: monospace;
 }
 
+/* Top Header */
+
 .header {
-    margin: 5px;
+    margin: 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
 
-.card {
-    display: flex;
-    height: 300px;
-    width: 600px;
-    margin: 5% auto;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(255, 255, 255);
-    border-radius: 18px;
-    border: 3px solid black;
+/* Quiz Card */
+main {
+    border: 2px black solid;
+    margin: 15px auto;
+    text-align: center;
+    padding: 8px;
+    width: 80%;
 }
 
 h2 {
-font-size: 24px;
+    font-size: 25px;
 }
 
 
-.quizQuestion {
-    width: 80%;
-    padding-top: 25px;
-}
 
-.possibleAnswers {
+/* Button Section */
+
+.buttonCard {
     display: flex;
-    width: 60%;
-    flex-direction: column;
-
-}
-
-.answerBtn {
-    margin: 3px;
-    background-color: blueviolet;
-    color: white;
-    font-weight: 600;
-    padding:5px;
-    border-radius: 8px ;
-    text-align: left;
-    padding-left: 10px;
-}
-
-.answerBtn:hover {
-    transform: scale(.99);
-    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+    justify-content: center;
+    gap: 10px;
 }
 
 .btn_style {

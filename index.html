@@ -7,38 +7,45 @@
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./style.css" />
-    
+
 </head>
 
 
 <body>
     <!-- top header, highscore and timer-->
-<header class="header">
+    <header class="header">
+        <div>
+            <p>View Highscores</p>
+        </div>
+        <div>
+            <p class='timer'>Timer</p>
+        </div>
+    </header>
+
+
+<!-- Quiz Card -->
+<main>
+    <h2 id="quizQuestion"></h2>
     <div>
-        <p>View Highscores</p>
+        <ul id="possibleAnswers">
+            <button id="a"></button>
+            <button id="b"></button></button>
+            <button id="c"></button></button>
+            <button id="d"></button></button>
+        </ul>
     </div>
-    <div>
-        <p class='timer'>Timer</p>
+
+</main>
+
+    
+    
+    
+    
+<!-- START AND RESET BUTTONs -->
+    <div class="buttonCard">
+        <button class="start-button btn_style">Start!</button>
+        <button class="reset-button btn_style">Reset</button>
     </div>
-</header>
-
-<!-- Questions and answer buttons -->
-<div class="card">
-    <h2 class="quizQuestion">Questions Placeholder</h2>
-    <div class="possibleAnswers">
-        <button id="a1" class="answerBtn"></button>
-        <button id="a2" class="answerBtn"></button>
-        <button id="a3" class="answerBtn"></button>
-        <button id="a4" class="answerBtn"></button>
-    </div>
-    <div>
-    <button class="start-button btn_style">Start!</button>
-    <button class="reset-button btn_style">Reset</button>
-    </div>
-</div>
-
-
-
 
     <script src="./script.js"></script>
 </body>

@@ -22,12 +22,44 @@ start.onclick =  function() {
 
 }
 
+// questions and answers js code
 
+var quiz = [
+    {
+    question: "This is the first question",
+    a: "yes",
+    b: "no",
+    c: "maybe",
+    d: "all the above",
+    correct: "c"
+},
 
-// Quiz codes
-var yearAnswer = ["1989","1991","1995","1998"]
-var answers = [a1,a2,a3,a4]
+{
+    question: "This is the second question",
+    a: "yes",
+    b: "no",
+    c: "maybe",
+    d: "all the above",
+    correct: "c"
+},
 
-for (var i = 0 ; i < yearAnswer.length; i++) {
-answers[i].innerText = yearAnswer [i]
-}
+{
+    question: "This is the third question",
+    a: "yes",
+    b: "no",
+    c: "maybe",
+    d: "all the above",
+    correct: "c"
+},
+
+{
+    question: "This is the forth question",
+    a: "yes",
+    b: "no",
+    c: "maybe",
+    d: "all the above",
+    correct: "c"
+},
+]
+
+function displayQuiz() 
