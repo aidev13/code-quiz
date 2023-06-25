@@ -18,7 +18,7 @@ main {
     margin: 15px auto;
     text-align: center;
     padding: 8px;
-    width: 75%;
+    width: 80%;
 }
 
 h2 {
@@ -31,7 +31,7 @@ ul {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    width: 50%;
+    width: 80%;
     margin: auto;
 }
 
