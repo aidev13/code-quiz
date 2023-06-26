@@ -14,8 +14,10 @@
 
 /* Quiz Card */
 main {
-    border: 2px black solid;
-    margin: 15px auto;
+    box-shadow: -5px 5px 8px 0px rgb(63, 63, 63);
+    border-radius: 30px;
+    background-color: rgb(220, 240, 255);
+    margin: 25px auto;
     text-align: center;
     padding: 8px;
     width: 80%;
