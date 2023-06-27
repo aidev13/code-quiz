@@ -86,7 +86,6 @@ function handleAnswerButtonClick(event) {
         quizIndex++
         displayQuiz()
 
-
     }
 }
 
@@ -113,7 +112,7 @@ start.onclick = function () {
         if (count === 0) {
             clearInterval(intervalId)
             timer.innerText = "Time's Up!"
-            bgColor.style = "background-color: red;"
+            bgColor.style.backgroundColor = "red"
         }
         count--
     }, 1000)
@@ -127,6 +126,11 @@ reset.onclick = function () {
     timer.innerText = "Timer"
     welcome.style = "display: ;"
     main.style = "display: none;"
-
+    bgColor.style.backgroundColor = "white"
+    clearInterval(intervalId)
+    count = 5
+    quizIndex = 0
+    score.innerText = ""
+    points = 0
 
 }
