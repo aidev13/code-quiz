@@ -7,11 +7,14 @@ var correct = document.getElementById("correctPick")
 // var allChoices = []
 var possibleAnswers = document.getElementById("possibleAnswers")
 var main = document.querySelector("main")
-
-// main.style = ("display: none;")
-
+var score = document.getElementById("score")
+var welcome = document.querySelector("section")
 var quizIndex = 0
+var start = document.querySelector(".start-button")
+var reset = document.querySelector(".reset-button")
 
+
+main.style = ("display: none;")
 // questions and answers js code
 var quiz = [
 
@@ -78,14 +81,17 @@ console.log(event.target)
         console.log(quiz[quizIndex].correct)
         // if button id matches the quiz[quizIndex].correct
         if (event.target.id === quiz[quizIndex].correct) {
-            console.log("correct")
+            score.innerText = "Correct"
+            score.style = "color: green;"
         }
         else {
-            console.log("incorrect")
+            score.innerText = "Incorrect"
+            score.style = "color: red;"
         }
         
         quizIndex++
         displayQuiz()
+
 
     }
 }
@@ -102,13 +108,11 @@ var count = 5
 var intervalId
 
 // Quiz Start Button
-var start = document.querySelector(".start-button")
-
 start.onclick = function () {
 
     displayQuiz()
 
-    timer.innerText = ""
+    timer.innerText = "Ready... Set..."
 
     intervalId = setInterval(function () {
         timer.innerText = count
@@ -116,13 +120,21 @@ start.onclick = function () {
             clearInterval(intervalId)
             timer.innerText = "Time's Up!"
             bgColor.style = "background-color: red;"
+        } else if (reset.onclick) {
+            
         }
         count--
     }, 1000)
     main.style = "display: ;"
-
-
+    welcome.style = "display: none"
 
 }
 
 
+reset.onclick = function() {
+    timer.innerText = "Timer"
+    welcome.style = "display: ;"
+    main.style = "display: none;"
+
+
+}

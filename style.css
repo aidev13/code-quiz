@@ -5,22 +5,36 @@
 /* Top Header */
 
 .header {
-    margin: 15px;
+    margin: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
 }
 
+
+
 /* Quiz Card */
-main {
-    box-shadow: -5px 5px 8px 0px rgb(63, 63, 63);
-    border-radius: 30px;
-    background-color: rgb(220, 240, 255);
+main,
+section {
+    /* box-shadow: -5px 5px 8px 0px rgb(180, 180, 180);
+    border-radius: 20px;
+    background-color: rgba(243, 250, 255, 0.404); */
     margin: 25px auto;
+    margin-top: 75px;
     text-align: center;
     padding: 8px;
     width: 80%;
+}
+
+section {
+    /* height:60px; */
+    font-size: 24px;
+    width: 60%;
+}
+
+section p {
+    font-size: 16px;
 }
 
 h2 {
@@ -31,9 +45,9 @@ h2 {
 ul {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items:stretch;
     gap: 8px;
-    width: 80%;
+    width: 60%;
     margin: auto;
 }
 
@@ -49,7 +63,7 @@ ul {
 
 .btn_style {
     border: 2px solid black;
-    background-color: white;    
+    background-color: white;
     border-radius: 8px;
     padding: 5px;
     width: 75px;
@@ -59,4 +73,24 @@ ul {
 .btn_style:hover {
     background-color: black;
     color: white;
+}
+
+#score {
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.btn {
+    padding: 5px 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.btn:hover {
+    transform: scale(.98);
+    color: white;
+    background-color: black;
+    border: 2px solid white;
 }
