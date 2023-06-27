@@ -12,6 +12,7 @@ var welcome = document.querySelector("section")
 var quizIndex = 0
 var start = document.querySelector(".start-button")
 var reset = document.querySelector(".reset-button")
+var score = document.getElementById("usersScore")
 
 
 main.style = ("display: none;")
@@ -66,7 +67,7 @@ function displayQuiz() {
 }
 
 
-
+var points = 0
 function handleAnswerButtonClick(event) {
     //if the users clicks a button
 
@@ -75,12 +76,13 @@ function handleAnswerButtonClick(event) {
         if (event.target.id === quiz[quizIndex].correct) {
             usersPick.innerText = "Correct"
             usersPick.style = "color: green;"
+            score.innerText = points += 5
         }
         else {
             usersPick.innerText = "Incorrect"
             usersPick.style = "color: red;"
+            score.innerText = points -= 2
         }
-
         quizIndex++
         displayQuiz()
 
@@ -125,7 +127,6 @@ reset.onclick = function () {
     timer.innerText = "Timer"
     welcome.style = "display: ;"
     main.style = "display: none;"
-    bgColor.style = ""
-    clearInterval(intervalId)
-    
+
+
 }
