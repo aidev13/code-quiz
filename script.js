@@ -3,11 +3,11 @@ var buttonA = document.getElementById("a")
 var buttonB = document.getElementById("b")
 var buttonC = document.getElementById("c")
 var buttonD = document.getElementById("d")
-var correct = document.getElementById("correctPick")
+
 // var allChoices = []
 var possibleAnswers = document.getElementById("possibleAnswers")
 var main = document.querySelector("main")
-var score = document.getElementById("score")
+var usersPick = document.getElementById("usersPick")
 var welcome = document.querySelector("section")
 var quizIndex = 0
 var start = document.querySelector(".start-button")
@@ -58,37 +58,29 @@ var quiz = [
 
 
 function displayQuiz() {
-
     questionAsked.innerHTML = quiz[quizIndex].question
-
     buttonA.innerHTML = quiz[quizIndex].a
     buttonB.innerHTML = quiz[quizIndex].b
     buttonC.innerHTML = quiz[quizIndex].c
     buttonD.innerHTML = quiz[quizIndex].d
-
-
-
 }
 
 
 
 function handleAnswerButtonClick(event) {
-console.log(event.target)
     //if the users clicks a button
 
     if (event.target.matches(".btn")) {
-        console.log(event.target.id)
-        console.log(quiz[quizIndex].correct)
         // if button id matches the quiz[quizIndex].correct
         if (event.target.id === quiz[quizIndex].correct) {
-            score.innerText = "Correct"
-            score.style = "color: green;"
+            usersPick.innerText = "Correct"
+            usersPick.style = "color: green;"
         }
         else {
-            score.innerText = "Incorrect"
-            score.style = "color: red;"
+            usersPick.innerText = "Incorrect"
+            usersPick.style = "color: red;"
         }
-        
+
         quizIndex++
         displayQuiz()
 
@@ -98,7 +90,7 @@ console.log(event.target)
 
 
 //event delagation
-possibleAnswers.addEventListener('click', handleAnswerButtonClick )
+possibleAnswers.addEventListener('click', handleAnswerButtonClick)
 
 
 // timer code
@@ -120,8 +112,6 @@ start.onclick = function () {
             clearInterval(intervalId)
             timer.innerText = "Time's Up!"
             bgColor.style = "background-color: red;"
-        } else if (reset.onclick) {
-            
         }
         count--
     }, 1000)
@@ -131,10 +121,11 @@ start.onclick = function () {
 }
 
 
-reset.onclick = function() {
+reset.onclick = function () {
     timer.innerText = "Timer"
     welcome.style = "display: ;"
     main.style = "display: none;"
-
-
+    bgColor.style = ""
+    clearInterval(intervalId)
+    
 }
