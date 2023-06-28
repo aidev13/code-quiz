@@ -14,6 +14,10 @@ var start = document.querySelector(".start-button")
 var reset = document.querySelector(".reset-button")
 var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
+var timer = document.querySelector(".timer")
+var bgColor = document.querySelector("body")
+var count = 15
+var intervalId
 
 main.style = ("display: none;")
 endOfGame.style = ("display: none;")
@@ -21,41 +25,41 @@ endOfGame.style = ("display: none;")
 // questions and answers js code
 var quiz = [
 
-    {
-        question: "This is the first question",
-        a: "yes",
-        b: "no",
-        c: "c",
-        d: "all the above",
+   {
+        question: "How do you create a function?",
+        a: "function:myFunction()",
+        b: "function=myFunction()",
+        c: "function myFunction()",
+        d: "myFunction():function",
         correct: "c"
     },
 
     {
-        question: "This is the second question",
-        a: "yes",
-        b: "no",
-        c: "1",
-        d: "all the above",
-        correct: "d"
+        question: 'What is the correct JavaScript syntax to write "Hello World"?',
+        a: 'response.write("Hello World")',
+        b: '"Hello World"',
+        c: 'document.write("Hello World")',
+        d: '("Hello World")',
+        correct: "c"
     },
 
     {
-        question: "This is the third question",
-        a: "yes",
-        b: "no",
-        c: "maybe",
-        d: "all the above",
+        question: "Where is the correct place to insert a JavaScript?",
+        a: "Both the <head> section and the <body> section are correct",
+        b: "The <body> section",
+        c: "The <head> section",
+        d: "None of the above",
         correct: "a"
     },
 
     {
-        question: "This is the forth question",
-        a: "yes",
-        b: "no",
-        c: "maybe",
-        d: "all the above",
+        question: 'How does a "for" loop start?',
+        a: "for (i = 0; i <= 5)",
+        b: "for (i = 0; i <= 5; i++)",
+        c: "for i = 1 to 5",
+        d: "for (i <= 5; i++)",
         correct: "b"
-    }
+    },
 ]
 
 
@@ -81,6 +85,7 @@ function handleAnswerButtonClick(event) {
             usersPick.innerText = "Incorrect"
             usersPick.style = "color: red;"
             score.innerText = points -= 2
+            count = count - 2
         }
         quizIndex++
         displayQuiz()
@@ -91,12 +96,6 @@ function handleAnswerButtonClick(event) {
 possibleAnswers.addEventListener('click', handleAnswerButtonClick)
 
 
-// timer code
-var timer = document.querySelector(".timer")
-var bgColor = document.querySelector("body")
-var count = 5
-var intervalId
-
 // Quiz Start Button
 start.onclick = function () {
 
@@ -106,7 +105,7 @@ start.onclick = function () {
 
     intervalId = setInterval(function () {
         timer.innerText = count
-        if (count === 0) {
+        if (count === 0 || count < 0) {
             clearInterval(intervalId)
             timer.innerText = "Time's Up!"
             bgColor.style.backgroundColor = "red"
