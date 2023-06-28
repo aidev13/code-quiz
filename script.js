@@ -45,9 +45,9 @@ var quiz = [
 
     {
         question: "Where is the correct place to insert a JavaScript?",
-        a: "Both the <head> section and the <body> section are correct",
-        b: "The <body> section",
-        c: "The <head> section",
+        a: "Both the head section and the body section are correct",
+        b: "The body section",
+        c: "The head section",
         d: "None of the above",
         correct: "a"
     },
