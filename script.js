@@ -3,7 +3,7 @@ var buttonA = document.getElementById("a")
 var buttonB = document.getElementById("b")
 var buttonC = document.getElementById("c")
 var buttonD = document.getElementById("d")
-
+var points = 0
 // var allChoices = []
 var possibleAnswers = document.getElementById("possibleAnswers")
 var main = document.querySelector("main")
@@ -13,9 +13,11 @@ var quizIndex = 0
 var start = document.querySelector(".start-button")
 var reset = document.querySelector(".reset-button")
 var score = document.getElementById("usersScore")
-
+var endOfGame = document.getElementById("gameOver")
 
 main.style = ("display: none;")
+endOfGame.style = ("display: none;")
+
 // questions and answers js code
 var quiz = [
 
@@ -57,20 +59,17 @@ var quiz = [
 ]
 
 
-
 function displayQuiz() {
     questionAsked.innerHTML = quiz[quizIndex].question
     buttonA.innerHTML = quiz[quizIndex].a
     buttonB.innerHTML = quiz[quizIndex].b
     buttonC.innerHTML = quiz[quizIndex].c
     buttonD.innerHTML = quiz[quizIndex].d
+    
 }
 
-
-var points = 0
 function handleAnswerButtonClick(event) {
     //if the users clicks a button
-
     if (event.target.matches(".btn")) {
         // if button id matches the quiz[quizIndex].correct
         if (event.target.id === quiz[quizIndex].correct) {
@@ -85,10 +84,8 @@ function handleAnswerButtonClick(event) {
         }
         quizIndex++
         displayQuiz()
-
     }
 }
-
 
 //event delagation
 possibleAnswers.addEventListener('click', handleAnswerButtonClick)
@@ -118,6 +115,7 @@ start.onclick = function () {
     }, 1000)
     main.style = "display: ;"
     welcome.style = "display: none"
+    
 
 }
 
@@ -126,11 +124,14 @@ reset.onclick = function () {
     timer.innerText = "Timer"
     welcome.style = "display: ;"
     main.style = "display: none;"
+    endOfGame.style = ("display: none;")
     bgColor.style.backgroundColor = "white"
     clearInterval(intervalId)
     count = 5
     quizIndex = 0
     score.innerText = ""
     points = 0
+    usersPick.innerText = ""
+
 
 }

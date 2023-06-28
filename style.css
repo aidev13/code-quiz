@@ -94,3 +94,8 @@ ul {
     background-color: black;
     border: 2px solid white;
 }
+
+#usersScore {
+    font-size: 30px;
+    margin-top:10px;
+}
