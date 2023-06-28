@@ -16,7 +16,7 @@ var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
-var count = 15
+var count = 30
 var intervalId
 
 main.style = ("display: none;")
@@ -126,7 +126,7 @@ reset.onclick = function () {
     endOfGame.style = ("display: none;")
     bgColor.style.backgroundColor = "white"
     clearInterval(intervalId)
-    count = 5
+    count = 30
     quizIndex = 0
     score.innerText = ""
     points = 0
