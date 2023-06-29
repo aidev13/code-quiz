@@ -16,7 +16,7 @@ var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
-var count = 30
+var count = 5
 var intervalId
 var finalScore = document.getElementById("finalScore")
 main.style = ("display: none;")
@@ -92,6 +92,7 @@ function handleAnswerButtonClick(event) {
         }
         localStorage.setItem("totalPoints", score.innerText)
         quizIndex++
+        checkTimesUp()
         if (quizIndex >= quiz.length) {
             getScore()
         }
@@ -99,10 +100,13 @@ function handleAnswerButtonClick(event) {
             displayQuiz()
         }
     }
-
 }
 
-
+function checkTimesUp() {
+    if (count === 0) {
+        getScore()
+    }
+}
 
 
 // final score card display
@@ -111,7 +115,7 @@ function getScore() {
     var totalScore = localStorage.getItem("totalPoints")
     finalScore.innerText = totalScore
     main.style = ("display: none;")
-    endOfGame.style = ("display: ;")
+    endOfGame.style = ("display: block;")
     count = 0
 }
 
@@ -123,14 +127,16 @@ start.onclick = function () {
     timer.innerText = "Ready... Set..."
 
     intervalId = setInterval(function () {
+        count--
         timer.innerText = count
-        if (count === 0 || count < 0) {
+        if (count <= 0) {
             clearInterval(intervalId)
             timer.innerText = "Time's Up!"
             bgColor.style.backgroundColor = "red"
         }
-        count--
+        checkTimesUp()
     }, 1000)
+
     main.style = "display: ;"
     welcome.style = "display: none"
 }
@@ -143,7 +149,7 @@ reset.onclick = function () {
     endOfGame.style = ("display: none;")
     bgColor.style.backgroundColor = "white"
     clearInterval(intervalId)
-    count = 30
+    count = 5
     quizIndex = 0
     score.innerText = ""
     points = 0
