@@ -95,11 +95,11 @@ function handleAnswerButtonClick(event) {
         if (quizIndex >= quiz.length) {
             getScore()
         }
-        else{
-        displayQuiz()
+        else {
+            displayQuiz()
         }
-    } 
-    
+    }
+
 }
 
 
@@ -133,11 +133,9 @@ start.onclick = function () {
     }, 1000)
     main.style = "display: ;"
     welcome.style = "display: none"
-
-
 }
 
-
+//reset button
 reset.onclick = function () {
     timer.innerText = "Timer"
     welcome.style = "display: ;"
