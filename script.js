@@ -16,7 +16,7 @@ var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
-var count = 30
+var count = 5
 var intervalId
 var finalScore = document.getElementById("finalScore")
 main.style = ("display: none;")
@@ -89,11 +89,11 @@ function handleAnswerButtonClick(event) {
             score.innerText = points -= 2
             count = count - 2
         }
-        quizIndex++
         localStorage.setItem("totalPoints", score.innerText)
+        quizIndex++
         displayQuiz()
     }
-
+   // need to add  getscore()
 }
 
 //event delagation
@@ -106,6 +106,7 @@ function getScore() {
     finalScore.innerText = totalScore
     main.style = ("display: none;")
     endOfGame.style = ("display: ;")
+    count = 0
 }
 
 // Quiz Start Button
