@@ -59,7 +59,7 @@ var quiz = [
         c: "for i = 1 to 5",
         d: "for (i <= 5; i++)",
         correct: "b"
-    },
+    }
 ]
 
 
@@ -72,7 +72,8 @@ function displayQuiz() {
 
 }
 
-var lastQuestion = buttonD.innerHTML = quiz[quizIndex].d
+//event delagation
+possibleAnswers.addEventListener('click', handleAnswerButtonClick)
 
 function handleAnswerButtonClick(event) {
     //if the users clicks a button
@@ -91,13 +92,18 @@ function handleAnswerButtonClick(event) {
         }
         localStorage.setItem("totalPoints", score.innerText)
         quizIndex++
+        if (quizIndex >= quiz.length) {
+            getScore()
+        }
+        else{
         displayQuiz()
-    }
-   // need to add  getscore()
+        }
+    } 
+    
 }
 
-//event delagation
-possibleAnswers.addEventListener('click', handleAnswerButtonClick)
+
+
 
 // final score card display
 
@@ -139,7 +145,7 @@ reset.onclick = function () {
     endOfGame.style = ("display: none;")
     bgColor.style.backgroundColor = "white"
     clearInterval(intervalId)
-    count = 30
+    count = 5
     quizIndex = 0
     score.innerText = ""
     points = 0
