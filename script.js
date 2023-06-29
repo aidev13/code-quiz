@@ -18,14 +18,14 @@ var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
 var count = 30
 var intervalId
-
+var finalScore = document.getElementById("finalScore")
 main.style = ("display: none;")
 endOfGame.style = ("display: none;")
 
 // questions and answers js code
 var quiz = [
 
-   {
+    {
         question: "How do you create a function?",
         a: "function:myFunction()",
         b: "function=myFunction()",
@@ -69,8 +69,10 @@ function displayQuiz() {
     buttonB.innerHTML = quiz[quizIndex].b
     buttonC.innerHTML = quiz[quizIndex].c
     buttonD.innerHTML = quiz[quizIndex].d
-    
+
 }
+
+var lastQuestion = buttonD.innerHTML = quiz[quizIndex].d
 
 function handleAnswerButtonClick(event) {
     //if the users clicks a button
@@ -88,13 +90,23 @@ function handleAnswerButtonClick(event) {
             count = count - 2
         }
         quizIndex++
+        localStorage.setItem("totalPoints", score.innerText)
         displayQuiz()
     }
+
 }
 
 //event delagation
 possibleAnswers.addEventListener('click', handleAnswerButtonClick)
 
+// final score card display
+
+function getScore() {
+    var totalScore = localStorage.getItem("totalPoints")
+    finalScore.innerText = totalScore
+    main.style = ("display: none;")
+    endOfGame.style = ("display: ;")
+}
 
 // Quiz Start Button
 start.onclick = function () {
@@ -114,7 +126,7 @@ start.onclick = function () {
     }, 1000)
     main.style = "display: ;"
     welcome.style = "display: none"
-    
+
 
 }
 
@@ -131,6 +143,7 @@ reset.onclick = function () {
     score.innerText = ""
     points = 0
     usersPick.innerText = ""
+    localStorage.removeItem("totalPoints")
 
 
 }
