@@ -4,6 +4,7 @@ var buttonB = document.getElementById("b")
 var buttonC = document.getElementById("c")
 var buttonD = document.getElementById("d")
 var points = 0
+var para = document.getElementById("paraScore")
 // var allChoices = []
 var possibleAnswers = document.getElementById("possibleAnswers")
 var main = document.querySelector("main")
@@ -16,7 +17,7 @@ var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
-var count = 30
+var count = 10
 var intervalId
 var finalScore = document.getElementById("finalScore")
 main.style = ("display: none;")
@@ -76,6 +77,7 @@ function displayQuiz() {
 possibleAnswers.addEventListener('click', handleAnswerButtonClick)
 
 function handleAnswerButtonClick(event) {
+   
     //if the users clicks a button
     if (event.target.matches(".btn")) {
         // if button id matches the quiz[quizIndex].correct
@@ -95,6 +97,11 @@ function handleAnswerButtonClick(event) {
         checkTimesUp()
         if (quizIndex >= quiz.length) {
             getScore()
+            bgColor.style.backgroundColor = "white"
+            clearInterval(intervalId)
+            timer.innerText = "Great job! Play Again!"
+            para.style = ("display: none;")
+
         }
         else {
             displayQuiz()
@@ -105,6 +112,7 @@ function handleAnswerButtonClick(event) {
 function checkTimesUp() {
     if (count === 0) {
         getScore()
+        finalScore.innerText = "You have lost. Try Again."
     }
 }
 
@@ -137,7 +145,7 @@ start.onclick = function () {
         checkTimesUp()
     }, 1000)
 
-    main.style = "display: ;"
+    main.style = "display: block;"
     welcome.style = "display: none"
 }
 
@@ -146,7 +154,7 @@ reset.onclick = function () {
     timer.innerText = "Timer"
     welcome.style = "display: ;"
     main.style = "display: none;"
-    endOfGame.style = ("display: none;")
+    endOfGame.style = "display: none;"
     bgColor.style.backgroundColor = "white"
     clearInterval(intervalId)
     count = 30
