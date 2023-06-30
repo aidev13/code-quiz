@@ -4,7 +4,7 @@ var buttonB = document.getElementById("b")
 var buttonC = document.getElementById("c")
 var buttonD = document.getElementById("d")
 var points = 0
-var para = document.getElementById("paraScore")
+
 // var allChoices = []
 var possibleAnswers = document.getElementById("possibleAnswers")
 var main = document.querySelector("main")
@@ -17,7 +17,7 @@ var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
-var count = 10
+var count = 30
 var intervalId
 var finalScore = document.getElementById("finalScore")
 main.style = ("display: none;")
