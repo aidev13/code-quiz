@@ -17,7 +17,7 @@ var score = document.getElementById("usersScore")
 var endOfGame = document.getElementById("gameOver")
 var timer = document.querySelector(".timer")
 var bgColor = document.querySelector("body")
-var count = 30
+var count = 20
 var intervalId
 var finalScore = document.getElementById("finalScore")
 main.style = ("display: none;")
@@ -113,6 +113,7 @@ function checkTimesUp() {
     if (count === 0) {
         getScore()
         finalScore.innerText = "You have lost. Try Again."
+
     }
 }
 
@@ -157,7 +158,7 @@ reset.onclick = function () {
     endOfGame.style = "display: none;"
     bgColor.style.backgroundColor = "white"
     clearInterval(intervalId)
-    count = 30
+    count = 20
     quizIndex = 0
     score.innerText = ""
     points = 0
